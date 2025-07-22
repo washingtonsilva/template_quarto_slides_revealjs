@@ -87,9 +87,9 @@ Substitua o link acima pelo endereço do seu repositório.
 clonada e abra o projeto RStudio: `template-slides-revealjs-seunome.Rproj`.
 
 9. Abra e renderize o arquivo `template-slides-revealjs-seunome.qmd` 
-para verificar se tudo está funcionando corretamente.
+para verificar se o arquivo renderiza corretamente.
 
-9. Se tudo estiver funcionando, **eenomeie** o arquivo 
+9. Se tudo estiver funcionando, **renomeie** o arquivo 
 `template-slides-revealjs-seunome.qmd` usando um nome **descritivo** e 
 faça as alterações para criar sua apresentação.
 
