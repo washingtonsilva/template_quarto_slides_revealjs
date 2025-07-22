@@ -20,6 +20,8 @@ Desktop.ini
 .RData           # Workspace salvo
 .Ruserdata       # Dados do usuário
 
+# Comente a linha abaixo se quiser versionar o arquivo .Rproj do projeto
+*.Rproj
 
 # ================================
 # Quarto

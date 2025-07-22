@@ -15,11 +15,13 @@ Desktop.ini
 # ================================
 # R e RStudio
 # ================================
-.Rproj.user      # Configurações específicas do usuário
+.Rproj.user/     # Configurações específicas do usuário
 .Rhistory        # Histórico de comandos
 .RData           # Workspace salvo
 .Ruserdata       # Dados do usuário
 
+# Comente a linha abaixo se quiser versionar o arquivo .Rproj do projeto
+*.Rproj
 
 # ================================
 # Quarto
