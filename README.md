@@ -223,8 +223,8 @@ própria defasagem $y_{it-1}$ e um erro aleatório $\epsilon_{it}$.
 
 que produz: 
 
-A variável resposta \(y_{it}\) é influenciada por sua 
-própria defasagem \(y_{it-1}\) e um erro aleatório \(\epsilon_{it}\).
+A variável resposta $y_{it}$ é influenciada por sua 
+própria defasagem $y_{it-1}$ e um erro aleatório $\epsilon_{it}$.
 
 
 ### Citações e referências
