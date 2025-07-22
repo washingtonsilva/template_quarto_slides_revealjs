@@ -44,9 +44,10 @@ Antes de começar, você precisa ter instalados:
 
 <p>
   <a href="https://github.com/seu-usuario/seu-repositorio/generate" target="_blank">
-    <img alt="Use this template" src="https://img.shields.io/badge/Use%20this%20template-brightgreen?style=for-the-badge" />
+    <img alt="Use this template" src="https://img.shields.io/badge/Use this template-brightgreen?style=flat-square" />
   </a>
 </p>
+
 
 
 2. Selecione a opção **Create a new repository**.
