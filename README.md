@@ -39,10 +39,7 @@ Antes de começar, você precisa ter instalados:
 
 ### Criando um novo repositório a partir do template
 
-1. Na página principal deste repositório, clique no botão verde 
-**Use this template**.
-
-<p>
+1. Na página principal deste repositório, clique no botão verde <p>
   <a href="https://github.com/seu-usuario/seu-repositorio/generate" target="_blank">
     <img alt="Use this template" src="https://img.shields.io/badge/Use this template-brightgreen?style=flat-square" />
   </a>
