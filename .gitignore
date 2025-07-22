@@ -65,3 +65,4 @@ renv.lock        # Se quiser rastrear o lockfile, comente esta linha
 # Sistema de arquivos (Windows/WSL)
 # ================================
 $RECYCLE.BIN/
+.Rproj.user

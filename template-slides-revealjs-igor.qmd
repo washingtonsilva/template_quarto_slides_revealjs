@@ -70,6 +70,7 @@ library(gt)         # para tabelas
 ::: {.callout-note icon=false}
 ## Tópicos
 
+::: incremental
 - Introdução
 - Revisão da Literatura
   - Fundamentação Teórica
@@ -84,6 +85,8 @@ library(gt)         # para tabelas
 - Cronograma 
 - Referências
 :::
+
+:::
 ::::
 
 
@@ -94,6 +97,7 @@ library(gt)         # para tabelas
 ::: {.callout-note icon=false}
 ## Motivação
 
+::: incremental
 - Ponto 1
 
 - Ponto 2
@@ -101,24 +105,35 @@ library(gt)         # para tabelas
 - Ponto 3
 :::
 
+:::
+
+
+::: aside
+O ambiente `aside` pode ser usado para notas ou comentários adicionais 
+:::
 
 
 
 
-# Revisão da Literatura
 
-# Fundamentação Teórica
+# Revisão da Literatura {background="#43464B"}
+
+# Fundamentação Teórica 
 
 ## Teoria da Agência
 
 ::: {.callout-note icon=false}
 ## @Jensen1976
 
+::: incremental
+
 - Ponto 1
 
 - Ponto 2
 
 - Ponto 3
+:::
+
 :::
 
 
@@ -170,7 +185,7 @@ library(gt)         # para tabelas
 
 
 
-# Evidências Internacionais
+# Evidências Internacionais {background="#43464B"}
 
 
 ## Estudos sobre Remuneração Executiva e Covid-19 
@@ -218,7 +233,7 @@ library(gt)         # para tabelas
 
 
 
-# Evidências Nacionais
+# Evidências Nacionais {background="#43464B"}
 
 ## @Borges2024
 
@@ -266,7 +281,7 @@ library(gt)         # para tabelas
 
 
 
-# Objetivos 
+# Objetivos {background="#43464B"}
 
 ## Objetivo Geral
 
@@ -288,11 +303,14 @@ sobre essa relação.
 ::: {.callout-note icon=false}
 ## Artigo Empírico
 
+::: incremental
 - Ponto 1
 
 - Ponto 2
 
 - Ponto 3
+:::
+
 :::
 
 
@@ -303,6 +321,7 @@ sobre essa relação.
 ::: {.callout-note icon=false}
 ## Pacote da Linguagem R
 
+::: incremental
 - Ponto 1
 
 - Ponto 2
@@ -310,12 +329,14 @@ sobre essa relação.
 - Ponto 3
 :::
 
+:::
 
 
 
 
 
-# Metodologia
+
+# Metodologia {background="#43464B"}
 
 
 ## Análise Descritiva
@@ -555,7 +576,7 @@ conforme apresentado em [@wooldridge2010; @baltagi2021].
 
 
 
-# Resultados Esperados
+# Resultados Esperados {background="#43464B"}
 
 ## Resultados Empíricos Esperados
 

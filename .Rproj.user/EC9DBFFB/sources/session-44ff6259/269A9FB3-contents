@@ -1,7 +1,0 @@
-Tentei remover um arquivo do rastreamento pelo Git e recebi a seguinte 
-mensagem, o que devo fazer?
-
-
-wss@MacBook-Air-de-Washington template_quarto_slides_revealjs % git rm --cached .Rproj.user 
-
-fatal: not removing '.Rproj.user' recursively without -r

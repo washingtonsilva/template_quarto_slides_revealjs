@@ -124,24 +124,6 @@ de uma lista apareçam um a um.
 - Sistema de apresentação em HTML interativo.
 - Permite uso de teclado, clique, rolagem e visão geral dos slides.
 
-### Equações com LaTeX
-
-Equações matemáticas podem ser escritas com a sintaxe do LaTeX usando `$$...$$`:
-
-```latex
-$$
-y_{it} = \beta_0 + \beta_1 y_{it-1} + \epsilon_{it}
-$$
-```
-
-### Tabelas com `gt`
-
-- Criação de tabelas com estilo moderno e responsivo.
-- Ideal para descrição de variáveis e resultados estatísticos.
-
-### Gráficos com `ggplot2`
-
-- Inserção de gráficos descritivos e cronogramas, como gráficos de Gantt.
 
 ### Blocos `callout`
 
@@ -150,10 +132,88 @@ $$
 ```markdown
 ::: {.callout-note icon=false}
 ## Título
+
+- Item 1
+- Item 2
+
+:::
+```
+
+
+### Listas incremetais com .fragment
+
+- Itens que aparecem um a um ao clicar ou pressionar a seta para baixo:
+
+```markdown
+::: incremental
+- Ponto 1
+
+- Ponto 2
+
+- Ponto 3
+:::
+```
+
+
+### Controle da dimensão global de um slide
+
+Utilize o comando `:::: {style="font-size: 90%;"}` para definir o 
+tamanho de um slide específico, alterando o tamanho da fonte e 
+dimensões do slide. Por exemplo:
+
+```markdown
+## Título do Slide 
+
+:::: {style="font-size: 90%;"}
+
+::: {.callout-note icon=false}
+## Título
+
 - Item 1
 - Item 2
 :::
+
+::::
 ```
+
+reduz em 90% o tamanho do slide, permitindo incluir mais conteúdo 
+se necessário.
+
+
+### Equações com LaTeX
+
+Equações matemáticas em blocos podem ser escritas com a sintaxe do LaTeX 
+usando `$$...$$`:
+
+```latex
+$$
+y_{it} = \beta_0 + \beta_1 y_{it-1} + \epsilon_{it}
+$$
+```
+
+Símbolos e outros elementos podem ser escritos em uma linha usando 
+`$...$`, como em: 
+
+A variável resposta $y_{it}$ é influenciada por sua 
+própria defasagem $y_{it-1}$ e um erro aleatório $\epsilon_{it}$.
+
+
+### Citações e referências
+
+Citações no texto são feitas com `@label`, como em 
+"conforme @nunes_2025". As referências são formatadas automaticamente 
+no final do slide, com o estilo ABNT 2023. 
+
+É importante inserir o seguinte div ao final para que as 
+referências sejam exibidas corretamente:
+
+```markdown
+## Referências
+
+::: {#refs}
+:::
+```
+
 
 
 ## Recomendações para adaptação por outros orientandos
@@ -166,7 +226,7 @@ $$
 
 
 
-## Documentação e ajuda
+## Aprenda mais sobre Quarto e Revealjs
 
 - Estude a [documentação do formato revealjs para slides com Quarto](https://quarto.org/docs/presentations/revealjs/)
 
