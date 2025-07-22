@@ -29,7 +29,8 @@ O template é composto pelos seguintes arquivos:
 ampla.
    
 - `associacao-brasileira-de-normas-tecnicas-ipea.csl`: arquivo de estilo 
-para formatação automática de citações e referências conforme a norma ABNT 2023.
+para formatação automática de citações e referências conforme a norma ABNT 2023, 
+elaborado pelo Instituto de Pesquisa Econômica Aplicada (IPEA).
 
 
 
