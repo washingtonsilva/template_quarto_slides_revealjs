@@ -32,7 +32,7 @@ Antes de começar, você precisa ter instalados:
 
 - [Quarto](https://quarto.org/docs/download/) (versão mais **recente**);
 - Um editor ou IDE como [RStudio](https://posit.co/download/rstudio-desktop/), [VS Code](https://code.visualstudio.com/) ou [Positron](https://posit.co/blog/announcing-positron/);
-- [TinyTeX](https://quarto.org/docs/output-formats/pdf-basics.html#installing-tex): sistema TeX simplificado (necessário apenas se desejar também gerar arquivos PDF);
+- [TinyTeX](https://quarto.org/docs/output-formats/pdf-basics.html#installing-tex): sistema TeX simplificado;
 - R ou Python ou Julia (necessários apenas se incluir com código).
 
 
