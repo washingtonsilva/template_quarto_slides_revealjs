@@ -216,9 +216,15 @@ $$
 Símbolos e outros elementos podem ser escritos em uma linha usando 
 `$...$`, como em: 
 
+``` markdown
 A variável resposta $y_{it}$ é influenciada por sua 
 própria defasagem $y_{it-1}$ e um erro aleatório $\epsilon_{it}$.
+```
 
+que produz: 
+
+A variável resposta \(y_{it}\) é influenciada por sua 
+própria defasagem \(y_{it-1}\) e um erro aleatório \(\epsilon_{it}\).
 
 
 ### Citações e referências
