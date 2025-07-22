@@ -14,7 +14,8 @@ O template é composto pelos seguintes arquivos:
 - `estilos.css`: define as dimensões do logotipo institucional, reduz o 
    tamanho da fonte do título principal dos slides, ajusta o tamanho da 
    fonte dos autores e permite estilizar a afiliação institucional 
-   exibida no slide de abertura.
+   exibida no slide de abertura. Altere o conteúdo deste arquivo somente 
+   se souber o que está fazendo.
 - `img/logo.jpeg`: logotipo do IFMG - Campus Formiga, exibido no cabeçalho 
   da apresentação.
 - `referencias.bibtex`: arquivo contendo as referências bibliográficas. 
