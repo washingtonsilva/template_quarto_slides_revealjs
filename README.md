@@ -146,7 +146,8 @@ mas não são obrigatórios.
 
 ### Blocos `callout`
 
-- Caixas de destaque para introduções, definições, objetivos e justificativas:
+- Caixas de destaque para descrições, definições, entre outros elementos 
+da apresentação.
 
 ```markdown
 ::: {.callout-note icon=false}
