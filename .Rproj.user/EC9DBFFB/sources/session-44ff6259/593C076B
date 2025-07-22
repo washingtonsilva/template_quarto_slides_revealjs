@@ -3,7 +3,7 @@
     "path": "~/github/template_quarto_slides_revealjs/README.md",
     "project_path": "README.md",
     "type": "markdown",
-    "hash": "1382106022",
+    "hash": "1652726101",
     "contents": "",
     "dirty": false,
     "created": 1753155441280.0,
@@ -14,11 +14,11 @@
         "Source": "Source"
     },
     "folds": "",
-    "lastKnownWriteTime": 1753155760,
+    "lastKnownWriteTime": 1753155946,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1753155760703,
+    "last_content_update": 1753155946432,
     "read_only": false,
     "read_only_alternatives": []
 }
