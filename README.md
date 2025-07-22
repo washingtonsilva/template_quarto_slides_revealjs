@@ -125,6 +125,18 @@ de uma lista apareçam um a um.
 - Permite uso de teclado, clique, rolagem e visão geral dos slides.
 
 
+
+### Slides 
+
+- Os títulos de nível 1 (`# Título Principal`) são utilizados 
+para definir as **seções principais** da apresentação, 
+como Revisão da Literatura, Metodologia, Resultados Esperados, etc, 
+mas não são obrigatórios.
+
+- Cada slide é definido por um título de nível 2 (`## Título do Slide`). 
+
+
+
 ### Blocos `callout`
 
 - Caixas de destaque para introduções, definições, objetivos e justificativas:
@@ -140,6 +152,7 @@ de uma lista apareçam um a um.
 ```
 
 
+
 ### Listas incremetais com .fragment
 
 - Itens que aparecem um a um ao clicar ou pressionar a seta para baixo:
@@ -153,6 +166,7 @@ de uma lista apareçam um a um.
 - Ponto 3
 :::
 ```
+
 
 
 ### Controle da dimensão global de um slide
@@ -180,6 +194,7 @@ reduz em 90% o tamanho do slide, permitindo incluir mais conteúdo
 se necessário.
 
 
+
 ### Equações com LaTeX
 
 Equações matemáticas em blocos podem ser escritas com a sintaxe do LaTeX 
@@ -198,11 +213,16 @@ A variável resposta $y_{it}$ é influenciada por sua
 própria defasagem $y_{it-1}$ e um erro aleatório $\epsilon_{it}$.
 
 
+
 ### Citações e referências
 
 Citações no texto são feitas com `@label`, como em 
 "conforme @nunes_2025". As referências são formatadas automaticamente 
 no final do slide, com o estilo ABNT 2023. 
+
+Você pode inserir referências em diversas partes de um slide, incluindo 
+no título de um slide, no título de um callout, ou em qualquer outro 
+local. Por exemplo:
 
 É importante inserir o seguinte div ao final para que as 
 referências sejam exibidas corretamente:
@@ -228,7 +248,7 @@ referências sejam exibidas corretamente:
 
 ## Aprenda mais sobre Quarto e Revealjs
 
-- Estude a [documentação do formato revealjs para slides com Quarto](https://quarto.org/docs/presentations/revealjs/)
+- Estude a [Documentação do Formato `revealjs` do Sistema Quarto](https://quarto.org/docs/presentations/revealjs/)
 
 
 
