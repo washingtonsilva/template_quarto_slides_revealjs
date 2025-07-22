@@ -213,6 +213,12 @@ y_{it} = \beta_0 + \beta_1 y_{it-1} + \epsilon_{it}
 $$
 ```
 
+que produz:
+
+$$
+y_{it} = \beta_0 + \beta_1 y_{it-1} + \epsilon_{it}
+$$
+
 Símbolos e outros elementos podem ser escritos em uma linha usando 
 `$...$`, como em: 
 
