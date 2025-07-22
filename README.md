@@ -84,10 +84,14 @@ git clone https://github.com/seu-usuario/seu-repositorio.git
 Substitua o link acima pelo endereço do seu repositório.
 
 8. Abra o RStudio, vá até **File → Open Project**, navegue até a pasta 
-clonada e abra o projeto RStudio: `template-slides-revealjs-seunome.Rproj`
+clonada e abra o projeto RStudio: `template-slides-revealjs-seunome.Rproj`.
 
-9. **Renomeie** o arquivo `template-slides-revealjs-seunome.qmd` usando 
-um nome **descritivo** e personalize o conteúdo.
+9. Abra e renderize o arquivo `template-slides-revealjs-seunome.qmd` 
+para verificar se tudo está funcionando corretamente.
+
+9. Se tudo estiver funcionando, **eenomeie** o arquivo 
+`template-slides-revealjs-seunome.qmd` usando um nome **descritivo** e 
+faça as alterações para criar sua apresentação.
 
 
 
