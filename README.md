@@ -1,7 +1,9 @@
 
 # Template de Apresentação com Quarto + Revealjs
 
-Este é um template para criar **apresentações acadêmicas em HTML** utilizando o sistema **Quarto**, com o formato `revealjs`. Ele foi desenvolvido para atender às necessidades dos orientandos do [Mestrado Profissional em Administração do IFMG - Campus Formiga](https://www.formiga.ifmg.edu.br/mestrado), mas pode ser facilmente adaptado por outros usuários.
+Este é um template para criar **apresentações acadêmicas em HTML** utilizando 
+o sistema **Quarto**, com o formato `revealjs`. Ele foi desenvolvido 
+para atender os meus orientandos do [Mestrado Profissional em Administração do IFMG - Campus Formiga](https://www.formiga.ifmg.edu.br/mestrado), mas pode ser facilmente adaptado por outros usuários.
 
 
 
