@@ -180,9 +180,8 @@ Você pode usar `-` ou `*` para definir os itens da lista. Por exemplo:
 
 ### Controle da dimensão global de um slide
 
-Utilize o comando `:::: {style="font-size: 90%;"}` para definir o 
-tamanho de um slide específico, alterando o tamanho da fonte e 
-dimensões do slide. Por exemplo:
+Utilize o comando `:::: {style="font-size: 90%;"}`, que precia ser fechado 
+com `::::`, para definir o tamanho de um slide específico. Por exemplo:
 
 ```markdown
 ## Título do Slide 
