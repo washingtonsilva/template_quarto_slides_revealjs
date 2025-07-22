@@ -1,0 +1,196 @@
+---
+title: "Avaliação 3 - Valor: 34 pontos"
+subtitle: "Introdução à Ciência de Dados - 2025 <br> Bacharelado em Administração"
+author:   
+  - Membro 1   
+  - Membro 2
+  - Membro 3
+  - Membro 4
+title-block-banner: "#27445C"
+format:
+  html:
+    embed-resources: true
+    page-layout: article
+    toc: true
+    toc-location: left
+lang: "pt"
+date: 2025-07-09
+date-format: long
+execute:
+  eval: true
+  echo: true
+  warning: false
+  message: false
+---
+
+
+
+```{r}
+#| label: setup
+#| echo: false
+
+# configura a exbição de números decimais
+options(digits = 3, scipen = 999)
+
+# pacotes utilizados
+library(tidyverse)
+library(ggpubr)
+```
+
+
+
+
+## Questão 1
+
+### Inferência sobre Proporções Populacionais
+
+**a)** 
+
+```{r}
+# Dados da pesquisa
+
+# seu código aqui
+```
+
+
+```{r}
+# Estimativa pontual da proporção de clientes satisfeitos do grupo A
+
+# seu código aqui
+```
+
+
+```{r}
+# Estimativa pontual da proporção de clientes satisfeitos do grupo B
+
+# seu código aqui
+```
+
+
+```{r}
+# Estimativa pontual da diferença entre as proporções
+
+# seu código aqui
+```
+
+
+
+
+**b)** 
+
+
+
+
+
+**c)** 
+
+
+```{r}
+# Intervalo de confiança para a diferença entre proporções
+
+# seu código aqui
+```
+
+
+
+**d)** 
+
+
+
+**e.1)** 
+
+
+
+$$
+\begin{cases}
+H_0:  \\
+H_A: 
+\end{cases}
+$$
+
+
+**e.2)** 
+ 
+
+```{r}
+# Teste de hipótese unilateral para proporção da Categoria A
+
+# seu código aqui
+```
+
+
+
+**e.3)** 
+
+
+
+
+
+## Questão 2
+
+### Inferência sobre Médias Populacionais
+
+```{r}
+# Cria a data.frame dados_entrega
+dados_entrega <- data.frame(
+  tempo = c(
+    1.9908307, 3.7595980, 3.9207872, 1.9499968, 2.5570788, 2.9083451, 
+    3.8215787, 3.4254931, 4.1066170, 3.7159112, 2.3757705, 4.3799877, 
+    4.0898537, 4.6885358, 1.9032753, 4.9526208, 4.7632426, 3.5487350, 
+    5.2520306, 4.5840950, 2.7728566, 1.6544221, 1.9158527, 3.3874123,
+    3.1677474, 4.2208561, 2.7834305, 2.9044544, 4.5360855, 2.2195599, 
+    2.7240852, 2.6655864, 1.4009759, 3.4665378, 3.3535627, 4.6972176, 
+    1.9733366, 2.5457229, 2.2336230, 2.6573906, 2.6681639, 3.1323411, 
+    2.4254247, 2.7917952, 4.9867621, 2.8329370, 2.8299644, 3.5470596, 
+    1.4070574, 3.1499424, 1.9685541, 2.4178228, 3.4466604, 3.6865291, 
+    3.3801921, 3.5045991, 2.2455080, 4.4135944, 3.2958687, 3.3348655, 
+    0.2198195, 1.6197339, 2.4793752, 3.6855232, 2.6521006, 4.5120387, 
+    4.4196294, 1.1254838, 2.1009464, 1.8516211, 2.5130132, 2.6551619, 
+    0.8074057, 4.2885169, 2.6779839
+  ),
+  parceiro = c(
+    rep("Atual", 35),
+    rep("Novo", 40)
+  )
+)
+```
+
+
+
+**a)** 
+
+
+```{r}
+# Gráfico quantile-quantile para verificar normalidade dos dados
+ggqqplot(dados_entrega, x = ______, color = _______) +
+  labs(title = "Verificação de Normalidade por Grupo")
+```
+
+
+
+
+**b)**
+
+
+```{r}
+# Estimativa por intervalo de confiança para a diferença entre médias 
+
+# seu código aqui
+```
+
+
+
+
+**c)** 
+
+
+**d)** 
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,2009 @@
+---
+lang: pt
+title: "Introdução à Ciência de Dados"
+subtitle: "Mestrado Profissional em Administração"
+author: "Prof. Washington Santos da Silva"
+institute: "IFMG - Campus Formiga"
+date: 2025-07-10
+date-format: long
+format: 
+  revealjs:
+    theme: [default, custom.scss]
+    embed-resources: true
+    controls: true
+    footer: "Prof. Washington Silva - Introdução à Ciência de Dados"
+    scrollable: true
+    slide-number: true
+    progress: true
+    incremental: false
+    transition: concave
+    code-link: true
+    overview: true
+    fig-cap-location: bottom
+    logo: img/logo_teste.jpeg
+    css: logo.css
+execute: 
+  echo: true
+  message: false
+  warning: false
+bibliography: referencias.bibtex
+csl: associacao-brasileira-de-normas-tecnicas-ipea.csl
+editor: source
+---
+
+
+
+```{r}
+#| label: setup
+#| echo: false
+
+# Cofigurações para exibicão de números
+options(
+  digits = 5, # número de casas decimais
+  scipen = 999 # desativa notação científica
+)
+
+# carrega pacotes
+library(tidyverse)
+library(ggpubr)
+```
+
+
+
+## Diário de Bordo {.smaller}
+
+::: {.callout-note icon=false}
+## O que vimos até aqui?
+
+- Aula 1 ✅
+
+    - Apresentação da Disciplina ✅
+    - Introdução e Contextualização ✅
+    - O que é Ciência de Dados? ✅
+    - Pesquisa Reproduzível e Ciência de Dados ✅
+    - Papéis Profissionais ✅
+    - Aplicações ✅   
+    - Habilidades Interpessoais e Analíticas ✅ 
+    - Apresentação da Disciplina ✅
+    - Configurações: Git/GitHub ✅ 
+
+- Aula 2 ✅  
+
+    - Metodologia CRISP-DM ✅ 
+    - Tipos de Análise de Dados ✅  
+    - Introdução ao RStudio e criação do **seu** Projeto da Disciplina ✅ 
+    - Introdução ao Sistema de Publicação Quarto ✅ 
+    - Introdução ao Git e GitHub: controle de versão e criação do **seu** 
+      repositório no GitHub ✅ 
+
+- Aula 3 ✅ 
+
+    - Breve Revisão sobre o RStudio ✅  
+    - Sistema de Publicação Quarto: (Cont.) ✅ 
+    - Introdução ao Git e GitHub:  (Cont.) ✅ 
+    - Sessão Prática: Fluxo de trabalho integrando RStudio/Quarto/R/Git/GitHub ✅ 
+
+- Aula 4 ✅ 
+
+    - Conceitos de Variáveis e Observações em Estatística ✅ 
+    - Conceito de Dados Organizados (*Tidy Data*) ✅ 
+    - Tipos atômicos e classes principais de dados da linguagem R ✅ 
+    - Tipos de Dados Tradicionais em Finanças: ✅ 
+    
+        - Dados em Secção-Cruzada (ou Transversal) (*Cross-Section Data*) ✅ 
+        - Dados em Secções-Cruzadas Combinadas (*Pooled Cross-Section Data*) ✅ 
+        - Dados em Séries Temporais (*Time Series Data*) ✅ 
+        - Dados em Painel (ou Longitudinais) (*Panel Data*) ✅ 
+        
+    - Importação e Preparação de Dados Típicos de Finanças com exemplos práticos ✅
+
+- Aula 5 ✅
+
+    - Metodologia CRISP-DM: Fases 2 e 3 ✅
+    - Revisão sobre Dados Organizados (*Tidy Data*) ✅
+    - Introdução ao Pacote tidyr: função pivot_longer() ✅
+    - Introdução ao Pacote dplyr: funções select() e filter() ✅
+    - Exercícios ✅
+
+- Aula 6 ✅
+
+    - Função mutate ✅
+    - Funções group_by e summarize ✅
+    - Exercícios ✅
+
+- Aula 7 ✅
+
+    - Introdução ao Pacote dplyr: Tipos Básicos de *joins* ✅
+    - Exercícios ✅
+
+- Aula 8 ✅
+
+    - Avaliação 1
+
+- Aula 9 ✅
+
+    - Modelos ✅
+
+    - Conceitos Fundamentais de Probabilidade ✅ 
+
+      - O que é Probabilidade? ✅
+      - Probabilidade Condicional e Independência ✅
+      - Amostra Aleatória ✅
+      - Variáveis Aleatórias e Funções de Probabilidade ✅
+      - Função de Distribuição Acumulada ✅
+      - Lei dos Grandes Números ✅
+  
+    - Distribuições de Probabilidade de VA Discretas ✅
+    
+      - Distribuição de Bernoulli ✅
+      - Características de uma Distribuição de Probabilidade ✅
+    
+        - Valor Esperado ✅
+        - Variância e Desvio-Padrão ✅
+        - Assimetria e Curtose ✅
+    
+    - Distribuição Binomial ✅
+
+- Aula 10 ✅
+
+    - Distribuições de Probabilidade de VA Contínuas ✅
+    
+        - Distribuição Uniforme ✅
+        - Método da Transformação Invesa da FDA ✅
+        - Distribuição Normal ✅
+        - Teorema Central do Limite ✅
+        - Fundamentos de Simulação de Monte Carlo ✅
+        - Distribuição Conjunta de Variáveis Aleatórias ✅
+        - Distribuição Condicional ✅ 
+        - Distribuição Marginal ✅
+        - Independência de Variáveis Aleatórias ✅
+        - Covariância e Correlação ✅
+
+- Aula 11 ✅
+
+    - Simulação de Monte Carlo - Aplicações ✅
+
+    - Aplicação - Valor-em-Risco (VaR) ✅
+
+      - Pacote tidyquant, Séries de Preços e de Rretornos de Acões ✅
+      - Método Paramétrico ✅
+      - Método Histórico ✅
+      - Método de Simulação de Monte Carlo ✅
+
+    - Aplicação - ES/CVaR ✅
+
+- Aula 12 ✅
+
+    - Revisão de Matemática Básica ✅
+    - Estatística, Probabilidade e Simulação ✅
+    - Parâmetro, Estimador/Estatística, Estimativa ✅
+    - Métodos de Inferência Estatística ✅
+    - Estimação Pontual de Parâmetros Populacionais ✅
+      - Método da Máxima Verossimilhança ✅
+      - Propriedades de Estimadores ✅
+:::
+
+
+
+
+## Nesta Aula
+
+::: {.callout-note icon=false}
+## Tópicos - Fundamentos de Estatística e Simulação
+
+- Método da Máxima Verossimilhança 
+
+  - Informação de Fisher
+
+- Distribuição Amostral 
+
+- Estimação por Intervalo de Confiança 
+
+:::
+ 
+
+
+
+## 
+
+:::: {style="font-size: 85%;"}
+
+::: callout-tip
+## Diretrizes para Aulas Mais Produtivas
+
+⌨️ **Código com método:**
+
+95% dos erros são evitáveis com: 
+
+- Atenção na digitação  
+- Respeitar a sequência lógica de etapas  
+- Revisão antes de pedir ajuda  
+
+🤝 **Inteligência colaborativa:**  
+
+- Compartilhe conhecimento
+- Resolva questões técnicas simples com colegas próximos  
+- Reserve ao professor as dúvidas conceituais complexas  
+
+💪 **Capacidade de Resolver Problemas**  
+
+Cada erro resolvido é uma evolução da sua habilidade analítica  
+:::
+::::
+
+
+
+
+## O que é compreender algo?
+
+
+:::: {.callout-quote icon=false}
+
+"Knowing the name of something is not the same as knowing something."
+— Richard Feynman
+::::
+
+
+
+
+## Métodos de Inferência Estatística
+
+::: {.callout-note icon=false}
+## Descrição
+
+Inferência estatística são métodos que consistem em usar dados de 
+uma amostra para tirar conclusões sobre parâmetros de uma população 
+subjacente da qual a amostra foi retirada.
+:::
+
+::: {.callout-note icon=false}
+## Escola Frequentista/Máxima Verossimilhança
+
+- Estimação de Parâmetros:
+
+    - Pontual ✓
+    - [Estimação por Intervalo de Confiança]{style="color:blue;"}
+  
+- [Testes de Significância]{style="color:blue;"}
+:::
+
+
+
+
+# Estimação por Máxima Verossimilhança {.center background-color="#F1E9D2"}
+
+
+## Estimador de Máxima Verossimilhança 
+
+::: {.callout-note icon=false}
+## Propriedades dos Estimadores de MV
+
+Agora, sabemos que os estimadores de máxima verossimilhança possuem 
+boas propriedades:
+
+- Os estimadores de MV são **assintoticamente não viesados**, à 
+medida que que $n$ aumenta, qualque viés do estimador tende a zero.
+
+- Os estimadores de MV são **consistentes**: à medida que $n$ aumenta, 
+o estimador de MV converge para o valor verdadeira do parâmetro da 
+população.
+
+- Os estimadores de MV são **assintoticamente  eficientes**: para $n$ grande, 
+eles possuem menor variância do que outros estimadores.
+
+- A distribuição amostral dos estimadores de MV é **assintóticamente normal**. 
+:::
+
+
+
+
+## Estimadores de Máxima Verossimilhança
+
+:::: {style="font-size: 95%;"}
+
+::: {.callout-note icon=false}
+## Resumo
+
+- Seja $Y$ uma variável aleatória (discreta ou contínua) que representa 
+um fenômeno aleatório de interesse e que é modelada por uma 
+distribuiçào de probabilidades. 
+
+- Seja $Y = (y_1, y_2,\ldots, y_n)$ uma amostra observada da VA Y, ou seja, 
+os dados.
+
+- A distribuição de probabilidades de $Y$ é descrita por um vetor de 
+parâmetros $\theta$ desconhecido os quais, portanto, precisam ser estimados 
+usando os dados observados.
+
+- Seja $f(y|\theta)$ a função de verossimilhança, que é proporcional à 
+probabilidade condicional dos dados, condicional ao vetor de parâmetros 
+$\theta$. 
+
+- Os estimadores de MV de $\theta$ são aqueles que 
+**maximizam a funçào de verossimilhança**. Ou seja, são os estimadores que 
+maximizam a probabilidade de ocorrência dos dados observados.
+
+- Para encontrar os estimadores de MV de $\theta$, maximizamos a 
+**função de log-verossimilhança**, por ser computacionalmente 
+mais simples.
+:::
+::::
+
+
+
+
+## Distribuições de Bernoulli e Binomial
+
+:::: {style="font-size: 90%;"}
+
+::: {.callout-note icon=false}
+## Distribuições de Bernoulli e Binomial
+
+#### **Distribuição de Bernoulli**  
+
+Seja $Y_i\in\{0,1\}$ com probabilidade de sucesso $p$ e de fracasso $1-p$.
+
+$$
+P(Y_i = y_i) = p^y(1 - p)^{1 - y} 
+$$
+
+#### **Distribuição Binomial** – $n$ ensaios i.i.d. Bernoulli
+
+$$
+Y=\sum_{i=1}^n Y_i\sim\operatorname{Bin}(n,p),\;\;\;P(Y=y)=\binom{n}{y}p^{y}(1-p)^{\,n-y}
+$$
+
+$$
+E(Y)=np,\qquad V[Y] = np(1-p)
+$$
+
+#### **Aplicações**
+
+- Econometria: Modelos logit e probit
+- Finanças: Modelos Risco de crédito (*default*) 
+- Finanças: Precificação de Opções  
+:::
+::::
+
+
+
+
+## Aplicação
+
+::: {.callout-note icon=false}
+## EMV de $p$
+
+- Nos EUA, uma pesquisa denominada *General Social Survey (GSS)* 
+de 2018 perguntou aos participantes: 
+“*Você acredita que existe vida após a morte?*" 
+
+- Entre os 2.123 indivíduos da amostra aleatória, 1.720 declararam que 
+acreditam que há vida após a morte. 
+
+- Vamos obter o EMV de $p$, a proporção de pessoas que acreditam 
+que há vida após a morte. 
+:::
+
+
+
+
+## EMV da Probabilidade de Sucesso $p$
+
+:::: {style="font-size: 95%;"}
+
+::: {.callout-note icon=false}
+## Derivação do EMV de $p$
+
+Suponha $k$ amostras independentes $x_1,\ldots,x_k$ de 
+$\operatorname{Bin}(n,p)$.
+
+#### Função de verossimilhança
+
+Ignorando o termo constante $\binom{n}{x_i}$:
+
+$$
+\begin{aligned}
+L(p) &= \prod_{i=1}^{k}\binom{n}{x_i}p^{x_i}(1-p)^{n-x_i}, \\
+L(p) &\propto \prod_{i=1}^{k} p^{x_i} (1 - p)^{n - x_i} 
+\end{aligned}
+$$
+Portanto, a função de log‑verossimilhança é:
+
+$$
+\log L(p) = \sum_{i=1}^k\bigl[x_i\,\log p+(n-x_i)\,\log(1-p)\bigr]
+$$
+
+#### Condição de 1ª ordem (score)
+
+$$
+\frac{\partial \log L(p)}{\partial p}=\frac{\sum x_i}{p}-\frac{kn-\sum x_i}{1-p} = 0
+$$
+
+Multiplicando por $p(1-p)$ e isolando $p$:
+
+$$
+\hat p = \frac{\sum x_i}{kn}=\bar x
+$$
+
+#### Condição de 2ª ordem
+
+$$
+\frac{\partial^{2} \log L(p)}{\partial p^{2}}=-\frac{\sum x_i}{p^{2}}-\frac{kn-\sum x_i}{(1-p)^{2}}<0
+$$
+
+Logo $\hat p$ maximiza $L(p)$.
+:::
+::::
+
+
+
+
+## EMV de $p$
+
+::: {.callout-tip}
+## Usando a Linguagem R
+
+- Vamos obter o EMV de $p$, a proporção de pessoas que acreditam 
+que há vida após a morte usando R. 
+
+- Além disso, vamos visualizar a função de verossimilhança e a função 
+de log-verossimilhança
+:::
+
+
+
+
+## O Exemplo anterior em R
+
+```{r}
+#| echo: true
+#| output-location: slide
+
+# Função para plotar a função de verossimilhança e a função de log-verossimilhança
+plot_funcao_mv = function(y,n)
+{
+    L <-  function(p) dbinom(y,n,p)
+    emv <- optimize(L, interval = c(0,1), maximum = TRUE)$max
+    p <-  (1:100)/100
+
+    # graficos da funcao de MV e de Log-MV
+    par(mfrow = c(1,1))
+    plot(p, L(p), type = 'l')
+    abline(v = emv)
+    plot(p, log(L(p)), type = 'l')
+    abline(v = emv)
+    round(emv, 2)
+}
+plot_funcao_mv(1720,2123)
+```
+
+
+
+
+## Curvatura da Função de Log‑Verossimilhança
+
+::: {.callout-tip}
+## Resumo
+
+- A **curvatura da função de log-verossimilhança** contém 
+**todas as informações**  que os **dados** fornecem sobre um vetor de 
+**parâmetros** $\theta$, dado o modelo. 
+
+- Vamos entender o porquê disso. A maior parte da Estatísica moderna 
+pode ser aprendida com um bom domínio destes conceitos 
+críticos.
+
+- Vejamos alguns formatos possíveis da curvatura da função de 
+log-verossimilhança ($\ln f(X|\theta)$) em relação à $\theta$.
+:::
+
+
+
+
+## Informação de Fisher $I(p)$
+
+:::: {style="font-size: 95%;"}
+
+::: {.callout-note icon=false}
+## Curvatura da Função de Log‑Verossimilhança
+
+A **Informação de Fisher** é uma maneira de medir a quantidade de 
+informação que uma amostra de uma VA $Y$ contém sobre um parâmetro 
+desconhecido $\theta$ da distribuição de probabilidade de $Y$. 
+**Por quê?**
+
+![Curvatura da Função de Log-Verossimilhança](img/loglik_curvatura.jpeg){#fig-curvaloglig fig-align="center"}
+
+- Se a curvatura de $\log L(\theta)$ em relação às variações de 
+$\theta$ é **pequena**, há muitos valores de $\theta$ que produzem 
+valores de $\log L(\theta)$ próximos. 
+
+  - Neste caso, a informação sobre o valor de $\theta$ é **vaga ou pequena**. 
+
+- Se a curvatura de $\log L(\theta)$ é **grande** 
+em relação às variações em $\theta$, é mais provável encontrar o valor 
+"correto" de $\theta$ usando os dados, pois há mais probabilidade 
+concentrada em torno de $\theta$. 
+
+  - Neste caso, a informação sobre o valor de $\theta$ é **grande**.
+  
+- Isso sugere estudar algum tipo de **variância** em relação ao vetor 
+de parâmetros $\theta$. Essa é a motivação para a Informacão de Fisher.
+:::
+::::
+
+
+
+
+## Informação de Fisher $I(p)$ 
+
+:::: {style="font-size: 95%;"}
+
+::: {.callout-note icon=false}
+## Informação de Fisher
+
+- A resposta refere-se ao conceito de **Informação de Fisher**.
+
+- Em Estatística, a **Informação de Fisher** é uma maneira de 
+medir a quantidade de informação que uma amostra de uma variável aleatória 
+$Y$ contém sobre um parâmetro desconhecido $\theta$ de uma distribuição de 
+probabilidade que modela $Y$.
+
+Se o score é dado $S(p) = \dfrac{\partial \log L(p)}{\partial p}$, 
+a informação de Fisher é definida como **variância** do score:
+
+$$
+I(p) = -E\bigl[S(p)^{2}\bigr] = -E\Bigl[\frac{\partial^{2} \log L(p)}{\partial p^{2}}\Bigr]=\frac{kn}{p(1-p)}
+$$
+
+- Quanto mais amostras, mais informação acumulada — o numerador é $kn$
+
+#### Por que tomar o valor esperado?
+
+- Como a função de log-verossimilhança depende dos 
+**dados específicos observados**,  a segunda derivada de $\log L(\theta)$ 
+também depende da amostra.
+
+- Mas a Informação de Fisher quer medir quanta informação uma 
+**distribuição** (não uma amostra específica) fornece sobre $\theta$.
+
+Então usamos:
+
+* O **Valor Esperado** da derivada segunda, tomada sobre a distribuição 
+dos dados, assumindo que $\theta$ é o valor verdadeiro.
+
+* Isso nos dá uma **medida média** da curvatura, que independe 
+de uma amostra específica.
+:::
+::::
+
+
+
+
+## Informação de Fisher
+
+:::: {style="font-size: 90%;"}
+
+::: {.callout-note icon=false}
+## Aplicações Atuais
+
+#### 1. Robótica: Localização e Mapeamento (SLAM)
+
+- Em sistemas de **robótica móvel**, a Informação de Fisher quantifica 
+**quanto um sensor contribui para estimar a posição do robô**.
+
+- É usada para **planejar trajetórias que maximizem a informação esperada**, otimizando o processo de **localização e mapeamento simultâneos (SLAM)** [@Carrillo2012].
+
+#### 2. Aprendizado de Máquina: Otimização com *Natural Gradient Descent*
+
+- O objetivo é **acelerar e estabilizar o treinamento de modelos complexos**, 
+como redes neurais profundas.
+
+- A matriz da Informação de Fisher define uma 
+**métrica no espaço dos parâmetros**, refletindo a geometria da função 
+de perda.
+
+- O método do **gradiente natural** utiliza essa métrica para atualizar 
+os parâmetros em direções mais informativas, levando em conta a curvatura 
+local.
+
+- Isso resulta em **convergência mais rápida**, evitando instabilidades 
+comuns em otimização com gradiente padrão [@Amari1998; @Martens2020].
+
+:::
+::::
+
+
+
+
+
+# Distribuição Amostral {.center background-color="#F1E9D2"}
+
+
+## O que é uma Distribuição Amostral?
+
+:::: {style="font-size: 100%;"}
+
+::: {.callout-note icon=false}
+## Distribuição Amostral
+
+- Um **estimador** (ou **estatística**) $T(Y)$ é uma função dos dados 
+da amostra.
+
+- Antes da coleta dos dados, $T$ é uma **variável aleatória** — seus 
+valores possíveis seguem uma **distribuição de probabilidade**.
+
+- Essa distribuição é chamada de **distribuição amostral do estimador**.
+
+- A distribuição amostral descreve:
+
+  - A **variabilidade** do estimador entre diferentes amostras.
+  - O **valor esperado** e a **precisão** do estimador em relação ao 
+  parâmetro populacional.
+
+> A **inferência estatística** baseia-se nessa distribuição para estimar 
+parâmetros e quantificar incertezas.
+:::
+::::
+
+
+
+
+## Distribuição de $\hat{p}$ (Proporção Amostral)
+
+:::: {style="font-size: 95%;"}
+
+::: {.callout-note icon=false}
+## Dois Casos
+
+#### Amostra pequena ($n$ pequeno)
+
+$$
+\hat{p} = \frac{Y}{n}, \quad \text{com } Y \sim \operatorname{Bin}(n, p)
+$$
+
+- $Y$ representa o **número de sucessos** em $n$ tentativas independentes, 
+com probabilidade $p$ de sucesso (modelo Bernoulli).
+
+- Assim, $Y$ segue uma **distribuição binomial**, e $\hat{p}$, sendo $Y/n$, 
+tem uma distribuição **escalada da binomial**.
+
+- A distribuição de $\hat{p}$ é **discreta**, e sua forma depende de $n$ e $p$.
+
+- Propriedades:  
+
+  $E(\hat{p}) = p$,  
+  $V(\hat{p}) = \dfrac{p(1 - p)}{n}$
+
+#### Amostra grande ($n \to \infty$)
+
+- Pelo **Teorema Central do Limite**, a distribuição de $\hat{p}$ 
+aproxima-se de uma normal:
+
+$$
+\hat{p} \;\dot{\sim}\; N\!\left(p,\;\dfrac{p(1 - p)}{n}\right)
+$$
+
+> Aproximação válida se $np > 10$ e $n(1 - p) > 10$.
+:::
+::::
+
+
+
+
+## Distribuição da Média Amostral $\bar{X}$
+
+:::: {style="font-size: 95%;"}
+
+::: {.callout-note icon=false}
+## Definição e Propriedades
+
+A **média amostral** $\bar{X}$ é definida como:
+
+$$
+\bar{X} = \frac{1}{n} \sum_{i=1}^n X_i
+$$
+
+onde $X_1, \dots, X_n$ são observações independentes e identicamente 
+distribuídas (i.i.d.), com média $\mu$ e variância $\sigma^2$.
+
+#### Propriedades:
+
+- **Valor esperado:**  
+
+  $$ E(\bar{X}) = \mu $$  
+  - $\bar{X}$ é um **estimador não-viesado** de $\mu$.
+
+- **Variância:**  
+
+  $$ V(\bar{X}) = \frac{\sigma^2}{n} $$  
+  - A variabilidade da média diminui com o tamanho da amostra.
+
+- **Erro-padrão:**  
+
+  $$ \operatorname{EP}(\bar{X}) = \frac{\sigma}{\sqrt{n}} $$  
+  - Mede a incerteza da estimativa de $\mu$ com base em uma amostra de 
+tamanho $n$.
+:::
+::::
+
+
+
+
+## Teorema Central do Limite (TCL) e a Média Amostral
+
+:::: {style="font-size: 95%;"}
+
+::: {.callout-note icon=false}
+## O que diz o TCL?
+
+Seja $X_1, \dots, X_n$ uma amostra aleatória de uma população com média 
+$\mu$ e desvio padrão $\sigma$.
+
+Mesmo que a distribuição da população **não seja normal**, a 
+**distribuição da média amostral** $\bar{X}$ se aproxima de uma normal 
+quando $n$ é grande.
+
+#### Resultado:
+
+$$
+\frac{\sqrt{n}(\bar{X} - \mu)}{\sigma}\;\xrightarrow{d}\; N(0, 1)
+$$
+
+Ou equivalentemente:
+
+$$
+\bar{X} \;\dot{\sim}\; N\left(\mu, \frac{\sigma^2}{n} \right)
+$$
+
+#### Condições para aplicar o TCL:
+
+- Amostra aleatória e observações independentes.  
+- Tamanho amostral suficientemente grande.  
+
+> Regra prática: $n \gtrsim 30$ geralmente é suficiente, especialmente se a população não for muito assimétrica ou com outliers.
+:::
+::::
+
+
+
+
+## Teorema Central do Limite
+
+![Independente da forma da distribuição da população, na medida que $n$ aumenta, a Distribuição Amostral de $\bar{X}$ torna-se mais estreita e converge para uma distribuição normal.](img/tcl.jpeg){fig-align="center"}
+
+
+
+
+## Variabilidade da Distribuição Amostral
+
+:::: {style="font-size: 95%;"}
+::: {.callout-note icon=false}
+## Erro‑Padrão (EP)
+
+- O **erro-padrão** é o desvio padrão da distribuição amostral de 
+um estimador.  
+
+  - Mede a **variabilidade do estimador** devida à **aleatoriedade da amostragem**.
+
+- Um erro-padrão menor indica um estimador **mais preciso**.
+
+- Fatores que afetam o erro-padrão:  
+
+  - **Variabilidade dos dados na população**: quanto maior $\sigma^2$ ou 
+   $p(1 - p)$, maior o erro-padrão.  
+   
+  - **Tamanho da amostra** ($n$): quanto maior $n$, menor o erro-padrão.
+
+> Obs.: “População” refere-se ao conjunto total de onde as amostras são 
+extraídas.
+:::
+::::
+
+
+
+
+## Método Delta
+
+:::: {style="font-size: 95%;"}
+
+::: {.callout-note icon=false}
+## Visão Geral
+
+O **Teorema Central do Limite** mostra que muitas estatísticas amostrais têm distribuição aproximadamente normal quando a amostra é grande.
+
+O **Método Delta** estende esse resultado para **funções não lineares** 
+dessas estatísticas.
+
+
+#### Versão Simplificada:
+
+Seja $T$ um estimador de um parâmetro $\theta$, tal que:
+
+$$
+\sqrt{n}(T - \theta) \overset{d}{\longrightarrow} N(0, \tau^2)
+$$
+
+e seja $g(\cdot)$ uma função diferenciável em $\theta$, então:
+
+$$
+\sqrt{n}\left[g(T) - g(\theta)\right] \overset{d}{\longrightarrow} 
+N\left(0,\, [g'(\theta)]^2 \cdot \tau^2 \right)
+$$
+
+
+#### Interpretação:
+
+- Se $T$ é assintoticamente normal, então **qualquer função suave de $T$** 
+também será assintoticamente normal.
+
+- A variância de $g(T)$ depende da inclinação (derivada) de $g$ no ponto 
+$\theta$.
+
+- Permite aproximar distribuições amostrais de transformações como 
+$\log(T)$, $\exp(T)$, $1/T$, etc.
+
+
+#### Aplicações:
+
+- Construção de intervalos de confiança para transformações de estimadores.  
+- Justificativa teórica para testes e estimadores não-lineares.  
+:::
+::::
+
+
+
+
+
+# Estimação por Intervalo de Confiança {.center background-color="#F1E9D2"}
+
+
+## Por que Intervalos de Confiança?
+
+:::: {style="font-size: 95%;"}
+
+::: {.callout-note icon=false}
+## O Desafio do Analista de Dados
+
+**Problema**: Uma estimativa pontual informa um valor, mas **não** quantifica a incerteza associada à inferência de uma amostra para a população.
+
+**Exemplo**: Satisfação média de 7.2 pontos em amostra de 100 clientes.
+
+**Pergunta**: Qual a **precisão** desta estimativa?
+
+**Solução**: Intervalos de confiança não reduzem a incerteza, mas 
+**quantificam a incerteza da amostragem**, fornecendo um intervalo onde 
+o parâmetro populacional provavelmente se encontra.
+
+**Comunicação Correta**: 
+
+> "A satisfação média de todos os clientes está entre 6.8 e 7.6 pontos, 
+com 95% de confiança."
+
+Quantifica a incerteza da amostragem.
+:::
+::::
+
+
+
+
+## Importância da Amostragem Aleatória
+
+:::: {style="font-size: 95%;"}
+
+::: {.callout-important icon=false}
+## **Por que a aleatoriedade é importante?**
+
+Os intervalos de confiança assumem que os dados provêm de uma 
+**amostra aleatória** da população de interesse. Esta condição é 
+fundamental para a validade dos resultados.
+
+**Consequências da aleatoriedade**:
+
+- Garante que cada elemento da população tenha chance conhecida de seleção
+- Permite que as propriedades probabilísticas dos estimadores sejam válidas
+- Assegura que os intervalos tenham as propriedades de cobertura desejadas
+
+**Responsabilidade do analista**: Sempre verificar e documentar o método de amostragem utilizado, alertando sobre limitações quando a aleatoriedade não 
+for garantida.
+:::
+::::
+
+
+
+
+## Estimação por Intervalo de Confiança
+
+:::: {style="font-size: 95%;"}
+
+::: {.callout-note icon=false}
+#### Definição Formal
+
+Sejam $T_L(Y)$ e $T_U(Y)$ duas funções dos dados amostrais 
+$Y = (y_1, \dots, y_n)$ tais que:
+
+$$
+P\left[ T_L(Y) \leq \theta \leq T_U(Y) \right] = 1 - \alpha, \quad \text{para todo } \theta
+$$
+
+Após a observação dos dados, o intervalo $[T_L(Y), T_U(Y)]$ é chamado 
+de **intervalo de confiança** de nível $1 - \alpha$.
+
+
+#### Confiança vs. Probabilidade
+
+- A probabilidade $1 - \alpha$ se refere ao processo aleatório de 
+geração dos dados, não ao parâmetro $\theta$.
+
+- Após observar os dados, o intervalo contém ou não $\theta$. Mas, antes da observação, o intervalo é aleatório.
+
+- A interpretação é frequentista: $\theta$ é fixo; o intervalo é 
+variável.
+:::
+::::
+
+
+
+
+## Intervalos de Confiança 
+
+:::: {style="font-size: 95%;"}
+
+::: {.callout-note icon=false}
+## Interpretação Formal
+
+- Um intervalo com 95\% de confiança, por exemplo, implica que, se fossem 
+retiradas 100 amostras e fossem obtidas 100 estimativas por IC, 
+espera-se que 95\% dos intervalos calculados contenham o valor 
+verdadeiro do parâmetro.
+
+- A @fig-ics ilustra, mostrando 100 estimativas de IC 
+$[TL(y), TU(y)]$ para um parâmetro $\theta$, com base em 100 amostras 
+extraídas alguma população. Os 5 intervalos em vermelho não incluem $\theta$. 
+
+
+![Intervalos de confiança de 95% para um parâmetro $\theta$ com base em 
+100 amostras separadas de uma população. Os intervalos de confiança em 
+vermelho são aqueles que não incluem $\theta$.](img/ics.jpeg){#fig-ics}
+:::
+::::
+
+
+
+
+## Estimador por IC para $p$
+
+:::: {style="font-size: 95%;"}
+
+::: {.callout-note icon=false}
+## Construção de um Estimador por IC para $p$
+
+Segundo Fisher, sob algumas condições, a distribuição assintótica 
+do **estimador de máxima verossimilhança (EMV)** é:
+
+$$
+\hat{\theta} \overset{d}{\longrightarrow} \mathcal{N}\left(\theta, \frac{1}{I(\theta)}\right)
+$$
+
+Isso implica que a **variância assintótica** do EMV é inversamente 
+proporcional à **informação de Fisher**:
+
+$$
+\operatorname{Var}(\hat{\theta}) \approx \frac{1}{I(\theta)}
+$$
+
+Assim, a função de log-verossimilhança não serve apenas para encontrar 
+$\hat{\theta}$, mas também para avaliar sua **precisão**.
+
+- Um estimador cuja variância assintótica atinge 
+$\frac{1}{I(\theta)}$ é dito **assintoticamente eficiente**.
+
+Na prática, como $\theta$ é desconhecido, estimamos a variância 
+substituindo $\theta$ pelo EMV $\hat{\theta}$:
+
+$$
+\widehat{\operatorname{Var}}(\hat{\theta}) \approx \frac{1}{I(\hat{\theta})}
+$$
+
+
+#### Aplicação: Estimador de $p$ na Binomial
+
+Para $X_1, \dots, X_k \overset{\text{iid}}{\sim} \operatorname{Bin}(n, p)$, 
+a informação de Fisher é:
+
+$$
+I(p) = \frac{kn}{p(1 - p)}
+$$
+
+Portanto, a variância assintótica do EMV $\hat{p}$ é:
+
+$$
+\operatorname{Var}(\hat{p}) \approx \frac{1}{I(p)} = \frac{p(1 - p)}{kn}
+$$
+
+Pela normalidade assintótica, temos:
+
+$$
+\hat{p} \overset{d}{\longrightarrow} \mathcal{N}\left(p, \frac{p(1 - p)}{kn}\right)
+$$
+
+Ou seja:
+
+- $E(\hat{p}) = p$
+- $\operatorname{Var}(\hat{p}) = \dfrac{p(1 - p)}{kn}$
+- $\sigma_{\hat{p}} = \sqrt{\dfrac{p(1 - p)}{kn}}$
+
+:::
+::::
+
+
+
+
+## Estimador por IC para $p$
+
+:::: {style="font-size: 95%;"}
+
+::: {.callout-note icon=false}
+## Método da Quantidade Pivotal
+
+Uma **quantidade pivotal** é uma função dos dados e do parâmetro:
+
+$$
+Q(X_1, \dots, X_n; \theta)
+$$
+
+com distribuição conhecida e **independente** de $\theta$.
+
+Se $T(Y) \sim N(\theta, \sigma^2)$, então:
+
+$$
+Z = \frac{T(Y) - \theta}{\sigma} \sim N(0, 1)
+$$
+
+#### Construindo o Intervalo com a Quantidade Pivotal
+
+Sabemos que:
+
+$$
+P[-1.96 \leq Z \leq 1.96] = 0.95
+$$
+
+Se:
+
+$$
+Z = \frac{T(Y) - \theta}{\sigma}
+$$
+
+então:
+
+$$
+P\left[T(Y) - 1.96\sigma \leq \theta \leq T(Y) + 1.96\sigma \right] = 0.95
+$$
+:::
+::::
+
+
+
+
+## Estimador por IC para $p$
+
+:::: {style="font-size: 95%;"}
+
+::: {.callout-note icon=false}
+## Ligação com EMV, Teorema Central do Limite e Fisher
+
+- Pelo **Teorema Central do Limite**, 
+$\bar{X} \to \mathcal{N}(\mu, \sigma^2/n)$ para $n$ grande.
+
+Estimadores de máxima verossimilhança (EMV) são 
+**assintoticamente normais**:
+
+$$
+\hat{\theta} \overset{d}{\rightarrow} \mathcal{N}\left(\theta, \frac{1}{I(\theta)}\right)
+$$
+
+Isso nos permite aplicar o **método da quantidade pivotal** com:
+
+$$
+Z = \frac{\hat{\theta} - \theta}{\sigma_{\hat{\theta}}}
+$$
+
+Intervalos assintóticos:
+
+$$
+\hat{\theta} \pm z_{\alpha/2} \cdot \sigma_{\hat{\theta}}
+$$
+
+:::
+::::
+
+
+
+
+## Intervalo de Confiança Assintótico para $p$
+
+:::: {style="font-size: 95%;"}
+
+::: {.callout-note icon=false}
+## Derivação - Intuição
+
+Sabemos que:
+
+$$
+\hat{p} \overset{d}{\rightarrow} N\left(p, \frac{p(1 - p)}{n}\right)
+$$
+
+Logo:
+
+$$
+Z = \frac{\hat{p} - p}{\sqrt{\frac{p(1 - p)}{n}}} \to N(0,1)
+$$
+
+Aproximamos com $\hat{p}$ no denominador:
+
+$$
+\boxed{
+\hat{p} \pm z_{\alpha/2} \cdot \sqrt{\frac{\hat{p}(1 - \hat{p})}{n}}
+}
+$$
+
+- 95%: $z = 1.96$
+- 99%: $z = 2.58$
+
+Exemplos:
+
+- 95%: como 
+$\alpha = 0.05 \Rightarrow \alpha/2 = 0.025 \Rightarrow z_{0.025} = 1.96$, 
+(em R: `qnorm(1 - 0.025) = qnorm(0.975)`), então:
+  
+  $\hat{p} \pm 1.96 \sqrt{\dfrac{\hat{p}(1 - \hat{p})}{n}}$
+
+- 99%: como 
+$\alpha = 0.01 \Rightarrow \alpha/2 = 0.005 \Rightarrow z_{0.005} = 2.58$, 
+(em R: `qnorm(1 - 0.005) = qnorm(0.995)`), então:
+
+  $\hat{p} \pm 2.58 \sqrt{\dfrac{\hat{p}(1 - \hat{p})}{n}}$
+
+#### Considerações Práticas
+
+- A normal aproxima bem a binomial se:
+
+$$
+np \geq 10 \quad \text{e} \quad n(1 - p) \geq 10
+$$
+
+- Caso essas condições não sejam atendidas, intervalos baseados nela podem ter 
+nível de confiança real inferior ao desejado.
+
+- Alternativas incluem métodos exatos (Clopper-Pearson) ou 
+correções (Wilson, Agresti-Coull).
+:::
+::::
+
+
+
+
+
+## Resumo
+
+:::: {style="font-size: 95%;"}
+
+::: {.callout-note icon=false}
+## Resumo
+
+1. Encontramos o **estimador** $\hat{p}$ pelo **método da máxima verossimilhança**.
+
+2. Derivamos sua **variância assintótica** com a **informação de Fisher**.
+
+3. Aplicamos o **TCL** para obter a **distribuição amostral** de $\hat{p}$.
+
+4. Usamos o **método da quantidade pivotal** para construir um intervalo 
+de confiança.
+
+
+#### Intervalos de Confiança para $p$:
+
+- **Para amostras grandes (método de Wald):**
+
+$$
+\boxed{
+\hat{p} \pm z_{\alpha/2} \cdot \sqrt{\frac{\hat{p}(1 - \hat{p})}{n}}
+}
+$$
+
+Para **$n$ pequeno** ou $\hat{p}$ próximo de 0 ou 1, pode ser imprecisa.
+
+- **Para amostras pequenas (intervalo exato de Clopper–Pearson):**
+
+Usado, por exemplo, na função `binom.test()` do R. Baseia-se na 
+distribuição binomial e fornece cobertura exata.
+:::
+::::
+
+
+
+## IC para uma ou duas proporções
+
+:::: {style="font-size: 95%;"}
+
+::: {.callout-note icon=false}
+## Resumo
+
+|                       | **Uma Proporção**                             | **Duas Proporções**                                       |
+|-----------------------|-----------------------------------------------|------------------------------------------------------------|
+| **Suposições**        | Amostra aleatória, variável binária           | Amostras aleatórias independentes, variáveis binárias      |
+| **Parâmetro**         | $p$                                           | $p_1 - p_2$                                                |
+| **Estimador**         | $\hat{p} = \dfrac{Y}{n}$                      | $\hat{p}_1 = \dfrac{Y_1}{n_1},\; \hat{p}_2 = \dfrac{Y_2}{n_2}$ |
+| **Quantidade pivotal**| $z = \dfrac{\hat{p} - p}{EP}$                 | $z = \dfrac{(\hat{p}_1 - \hat{p}_2) - (p_1 - p_2)}{EP}$     |
+| **Erro-padrão (Wald)**| $\sqrt{\dfrac{\hat{p}(1 - \hat{p})}{n}}$      | $\sqrt{\dfrac{\hat{p}_1(1 - \hat{p}_1)}{n_1} + \dfrac{\hat{p}_2(1 - \hat{p}_2)}{n_2}}$ |
+| **IC (Wald)**         | $\hat{p} \pm z_{\alpha/2} \cdot EP$           | $(\hat{p}_1 - \hat{p}_2) \pm z_{\alpha/2} \cdot EP$         |
+:::
+::::
+
+
+
+
+## Funções R para IC para Proporções
+
+:::: {style="font-size: 85%;"}
+
+::: {.callout-note icon=false}
+## prop.test() e binom.test()
+
+**`prop.test()`**
+
+- Usa a distribuição **qui-quadrado** com **correção de continuidade de Yates**
+- Intervalo é geralmente **mais conservador** do que o método de Wald
+- Adequado para amostras grandes ($n \geq 30$)
+- Sintaxe: `prop.test(x, n, conf.level = 0.95)`
+- Para duas proporções: `prop.test(c(x1, x2), c(n1, n2))`
+
+**`binom.test()`**: 
+
+- Intervalo **exato** com base na distribuição binomial
+- Adequado para amostras pequenas ou quando se deseja **precisão máxima**
+- Sintaxe: `binom.test(x, n, conf.level = 0.95)`
+- Apenas para uma proporção
+
+**Argumentos**:
+
+- `x`: número de sucessos observados  
+- `n`: tamanho da amostra  
+- `conf.level`: nível de confiança (padrão: 0.95)
+
+**Recomendações**:
+
+- Para $n \geq 30$ e proporções longe de 0 ou 1, `prop.test()` é uma 
+escolha prática e confiável  
+
+- Para amostras pequenas ou proporções extremas, prefira `binom.test()` 
+para maior precisão
+:::
+::::
+
+
+
+
+## Intervalos de Confiança para uma ou duas médias
+
+:::: {style="font-size: 95%;"}
+
+::: {.callout-note icon=false}
+## Resumo
+
+
+|                       | **Uma Média**                                | **Duas Médias**                                                                 |
+|-----------------------|----------------------------------------------|----------------------------------------------------------------------------------|
+| **Suposições**        | Amostra aleatória, população normal          | Amostras aleatórias, populações normais                                          |
+|                       |                                              | (variâncias iguais ou não)                                                      |
+| **Parâmetro**         | $\mu$                                        | $\mu_1 - \mu_2$                                                                 |
+| **Estimador**         | $\bar{Y}$                                    | $\bar{Y}_1 - \bar{Y}_2$                                                         |
+| **Quantidade pivotal**| $t = \dfrac{\bar{Y} - \mu}{EP}$              | $t = \dfrac{(\bar{Y}_1 - \bar{Y}_2) - (\mu_1 - \mu_2)}{EP}$                      |
+| **Erro-padrão (EP)**  | $\dfrac{s}{\sqrt{n}}$                        | Com variâncias **iguais**:                                                      |
+|                       |                                              | $\quad s_p \cdot \sqrt{\dfrac{1}{n_1} + \dfrac{1}{n_2}}$                         |
+|                       |                                              | $\quad s_p^2 = \dfrac{(n_1 - 1)s_1^2 + (n_2 - 1)s_2^2}{n_1 + n_2 - 2}$           |
+|                       |                                              | Com variâncias **desiguais** (Welch):                                           |
+|                       |                                              | $\quad \sqrt{\dfrac{s_1^2}{n_1} + \dfrac{s_2^2}{n_2}}$                           |
+| **IC (geral)**        | $\bar{Y} \pm t_{\alpha/2}(EP)$               | $(\bar{Y}_1 - \bar{Y}_2) \pm t_{\alpha/2}(EP)$                                  |
+| **Distribuição t**    | gl = $n - 1$                                 | gl = $n_1 + n_2 - 2$ (iguais) ou Welch (desiguais)                              |
+:::
+::::
+
+
+
+
+## Função R para Intervalos de Confiança de Médias 
+
+::: {.callout-note icon=false}
+## Função t.test()
+
+**t.test()**: Implementa intervalos de confiança e testes de 
+significância para médias.
+
+**Para uma média**:
+
+```{r style="font-size: 1.4em;"}
+#| eval: false
+t.test(dados, conf.level = 0.95)
+```
+
+**Para duas médias (amostras independentes)**:
+
+```{r style="font-size: 1.4em;"}
+#| eval: false
+t.test(grupo1, grupo2, conf.level = 0.95)
+```
+
+**Para duas amostras pareadas**:
+
+```{r style="font-size: 1.4em;"}
+#| eval: false
+t.test(antes, depois, paired = TRUE, conf.level = 0.95)
+```
+
+**Argumentos**:
+
+- `conf.level`: nível de confiança (padrão 0.95)
+- `var.equal`: assumir variâncias iguais (padrão FALSE, usa correção de Welch)
+- `paired`: para amostras pareadas
+
+**Extração de resultados**: Use `resultado$conf.int` para 
+obter apenas o intervalo.
+:::
+
+
+
+
+## Aplicação 1
+
+:::: {style="font-size: 90%;"}
+
+::: {.callout-note icon=false}
+## Estimação de Intervalo de Confiança para uma Proporção
+
+- Uma pesquisa do Eurobarômetro de 2019 relatou que a porcentagem de 
+pessoas que são ateístas ou agnósticas varia na Europa Ocidental entre 9% 
+na Irlanda e 52% na Holanda.
+
+- Intervalos de confiança mostram a precisão dessas estimativas. 
+
+- Vamos obter uma estimativa por intervalo de confiança da proporção de 
+holandeses que são ateístas ou agnósticos para o caso da Holanda, onde 
+dos 1.497 entrevistados, 778 relataram ser ateus ou agnósticos.
+
+```{r}
+# número total de entrevistados na Holanda
+n <- 1497
+
+# número de entrevistados que relataram ser ateus ou agnósticos
+x <- 778
+
+# Intervalo para p
+ic_holanda <- binom.test(x, n, conf.level = 0.95)
+ic_holanda
+
+# Obtendo somente a estimativa por intervalo de confiança
+round(ic_holanda$conf.int, 2)
+```
+
+#### Reportando o resultado
+
+A proporção de holandeses que se declararam ateus ou 
+agnósticos na pesquisa foi de 0,42 (IC 95% [0,49 0.55]), indicando que, 
+com 95% de confiança, a verdadeira proporção de holandeses que se declaram 
+ateístas ou agnósticos está entre 49% e 55%.
+:::
+::::
+
+
+
+
+## Aplicação 2
+
+:::: {style="font-size: 90%;"}
+
+::: {.callout-note icon=false}
+## Estimação de Intervalo de Confiança para Comparar Duas Proporções
+
+- A pesquisa realizada por @benson2006 utilizou pacientes de seis hospitais 
+dos EUA que iriam receber cirurgia de revascularização do miocárdio. 
+Os pacientes foram aleatoriamente designados para dois grupos. 
+
+- Para um grupo, os cristãos, os voluntários foram instruídos a orar por 
+uma cirurgia bem-sucedida com uma recuperação rápida e saudável e sem 
+complicações. 
+
+- A oração começou na noite anterior à cirurgia e continuou por duas
+semanas. O outro grupo não teve voluntários orando por eles. 
+
+- A resposta foi se complicações médicas ocorreram dentro de 30 dias da 
+cirurgia.
+
+- A tabela a seguir sumariza os resultados:
+
+```
+        Complications
+        -------------
+Prayer   Yes   No       Total
+Yes      315   289      604
+No       304   293      597
+```
+
+- Seja $p_1$ a proporção de complicações para os pacientes 
+que tinham um grupo de oração.
+
+- Seja $p_2$ a proporção de complicações para os pacientes que 
+não tinham um grupo de oração.
+
+- Essas são proporções populacionais para a população conceitual que esse exemplo representa.
+
+- Da tabela anterior, as proporções amostrais ($\hat p_1$, $\hat p_2$) que 
+tiveram complicações são:
+
+$$
+\hat{p}_1 = \frac{315}{604} = 0,522, \,\, \hat{p}_2 = \frac{304}{597} = 0,509
+$$
+
+Agora podemos usar a linguagem R para obter um IC para a diferença entre 
+$p_1 - p_2$:
+
+```{r}
+# número total de pacientes no grupo de oração
+n1 <- 604
+
+# número de pacientes que tiveram complicações no grupo de oração
+x1 <- 315
+
+# número total de pacientes no grupo sem oração
+n2 <- 597
+
+# número de pacientes que tiveram complicações no grupo sem oração
+x2 <- 304
+
+# Intervalo para p1 - p2
+ic_oracao <- prop.test(x = c(x1, x2), n = c(n1, n2), conf.level = 0.95) 
+ic_oracao
+
+# Obtendo somente a estimativa por intervalo de confiança
+round(ic_oracao$conf.int, 2)
+```
+
+#### Reportando o resultado
+
+- A diferença na proporção de pacientes que tiveram complicaçõs entre o 
+grupo de pacientes que contaram com um grupo de oração (52%) e o 
+grupo controle (51%) foi de 0,01 (IC 95% [-0.05, 0.07]), indicando que, com 
+95% de confiança, a verdadeira diferença na proporção de complicações entre 
+os grupos está entre -0.05 e 0,07.
+
+- Visto que o intervalo de confiança **contém zero**, os dados da pesquisa 
+fornecem evidência de que não há diferença estatisticamente significativa 
+na proporção de complicações entre os grupos.
+:::
+::::
+
+
+
+
+## Aplicação: Testes A/B
+
+:::: {style="font-size: 90%;"}
+
+::: {.callout-note icon=false}
+## Experimento Controlado 
+
+- **Definição:**
+
+Um teste A/B é um experimento que compara duas estratégias ou abordagens 
+diferentes dividindo aleatoriamente a população-alvo em dois grupos: 
+controle (versão A) e tratamento (versão B).
+
+- **Metodologia:**
+
+Ambas as versões são apresentadas simultaneamente para grupos similares, 
+mantendo constantes todas as demais variáveis. Esta abordagem isola o 
+efeito específico da mudança testada.
+
+- **Prevalência no Mercado Atual:**
+
+Testes A/B tornaram-se prática padrão em empresas digitais e organizações 
+orientadas por dados. Grandes corporações como Google, Amazon, Netflix e 
+Facebook executam milhares de testes A/B simultaneamente para otimizar 
+continuamente suas plataformas e serviços.
+
+- **Exemplos Reais de Aplicação:**
+
+O Netflix testa diferentes thumbnails para filmes e séries para maximizar 
+cliques. O Google experimenta variações na apresentação de resultados 
+de busca para melhorar a experiência do usuário. Empresas de e-commerce 
+testam cores de botões de compra, formulários de checkout e estratégias 
+de frete grátis para aumentar conversões.
+
+- **Análise Estatística:**
+
+Intervalos de confiança para diferença entre proporções ou médias 
+determinam se as diferenças observadas representam efeitos reais ou 
+variação aleatória.
+:::
+::::
+
+
+
+
+## Aplicação: Teste A/B
+
+:::: {style="font-size: 90%;"}
+
+::: {.callout-note icon=false}
+## Teste de Duas Versões de Website
+
+**Cenário**: Comparar tempo médio de permanência entre 
+versão atual (A) e redesenhada (B).
+
+```{r style="font-size: 1.4em;"}
+
+# cria dois vetores para os tempos de permanência
+versao_a <- c(3.2, 4.1, 2.8, 3.9, 3.5, 4.3, 2.9, 3.7, 4.0, 3.3,
+              2.6, 3.8, 4.2, 3.1, 3.6, 2.7, 4.5, 3.4, 2.5, 3.9)
+
+versao_b <- c(4.8, 5.2, 4.3, 5.6, 4.7, 5.1, 4.9, 5.4, 4.5, 5.0,
+              4.6, 5.3, 4.4, 5.7, 4.8, 5.5, 4.2, 5.8, 4.7, 5.2)
+
+# cria uma df para armazenar os dados
+dados_ab <- data.frame(
+  tempo = c(versao_a, versao_b),
+  grupo = c(rep("A", 20), rep("B", 20))
+)
+
+# gráfico quantil-quantil (QQ) para verificar normalidade
+ggqqplot(dados_ab, x = "tempo", color = "grupo") +
+  labs(title = "Verificação de Normalidade por Grupo")
+```
+
+0 gráfico quantil-quantil (QQ) mostra que ambos os grupos 
+estão razoavelmente próximos de uma distribuição normal.
+
+```{r style="font-size: 1.4em;"}
+# estimativa por ic para diferença das médias
+resultado_ab <- t.test(versao_b, versao_a, conf.level = 0.95)
+resultado_ab$conf.int
+```
+
+**Resultado**: IC 95% para (B - A) = [1.14, 1.83] minutos, como a estimativa 
+por intervalo de confiança para a diferença entre as médias **não contém** 
+zero, podemos concluir que a nova versão (B) é significativamente 
+melhor que a versão atual (A) em termos de tempo médio de permanência.
+
+**Conclusão**: Com 95% de confiança, a nova versão aumenta o tempo médio de permanência entre **1.14 e 1.83 minutos**.
+
+**Decisão**: Implementar Versão B em produção.
+:::
+::::
+
+
+
+
+## Verificação de Normalidade com Gráfico QQ
+
+:::: {style="font-size: 90%;"}
+
+::: {.callout-note icon=false}
+## Como Interpretar um Gráfico Quantil-Quantil
+
+**Objetivo**: Verificar se os dados seguem distribuição 
+aproximadamente normal.
+
+**Como criar**:
+
+```{r style="font-size: 1.4em;"}
+#| eval: false
+library(ggpubr)
+ggqqplot(dados, x = "variavel")
+```
+
+**Como interpretar**:
+
+* **Linha diagonal**: distribuição normal teórica
+* **Pontos**: quantis observados dos dados
+* **Banda cinza**: região de referência baseada em quantis simulados 
+de uma normal — serve como referência visual, **não** como intervalo 
+de confiança formal
+
+**Sinais de normalidade adequada**:
+
+* Pontos próximos à linha diagonal
+* Maioria dentro da banda cinza
+* Padrão aproximadamente linear
+
+**Problemas comuns**:
+
+* Curvaturas (assimetria)
+* Padrão em S (caudas pesadas ou leves)
+* Muitos pontos fora da região de referência
+
+**Regra prática**: Para $n \geq 30$, o Teorema Central do 
+Limite garante que pequenas violações da normalidade são aceitáveis.
+:::
+::::
+
+
+
+
+## Aplicação 3
+
+:::: {style="font-size: 90%;"}
+
+::: {.callout-note icon=false}
+## Estimação de Intervalo de Confiança para uma Média
+
+Você está conduzindo um estudo em para avaliar o impacto de um programa de 
+educação financeira na quantidade média de poupança mensal dos participantes. 
+O objetivo é determinar se o programa de educação financeira está 
+ajudando os participantes a poupar dinheiro a cada mês.
+
+Para isso, você coletou uma amostra aleatória de 30 participantes que 
+completaram o programa e registrou a quantidade que cada um deles conseguiu 
+poupar em um mês (em reais). Com esses dados, você deseja calcular o intervalo 
+de confiança de 95% para a média da poupança mensal dos participantes, o 
+que fornecerá uma estimativa da média de poupança que pode ser esperada na 
+população geral de participantes do programa. 
+
+Os dados produzidos no estudo foram:
+
+| participante | poupanca_mensal_reais |
+|--------------|-----------------------|
+| 1            | 150                   |
+| 2            | 200                   |
+| 3            | 180                   |
+| 4            | 220                   |
+| 5            | 190                   |
+| 6            | 170                   |
+| 7            | 210                   |
+| 8            | 230                   |
+| 9            | 160                   |
+| 10           | 200                   |
+| 11           | 180                   |
+| 12           | 175                   |
+| 13           | 190                   |
+| 14           | 210                   |
+| 15           | 185                   |
+| 16           | 165                   |
+| 17           | 220                   |
+| 18           | 195                   |
+| 19           | 205                   |
+| 20           | 215                   |
+| 21           | 190                   |
+| 22           | 200                   |
+| 23           | 185                   |
+| 24           | 180                   |
+| 25           | 210                   |
+| 26           | 195                   |
+| 27           | 175                   |
+| 28           | 170                   |
+| 29           | 200                   |
+| 30           | 190                   |
+
+
+- Armazenando os dados em uma data frame:
+
+```{r}
+# Carregar os dados simulados
+dados_programa <- data.frame(
+  participante = 1:30,
+  poupanca = c(150, 200, 180, 220, 190, 170, 210, 230, 160, 200,
+               180, 175, 190, 210, 185, 165, 220, 195, 205, 215,
+               190, 200, 185, 180, 210, 195, 175, 170, 200, 190)
+)
+
+dados_programa
+```
+
+- A primeira etapa é verificar se os dados seguem uma distribuicão 
+aproximadamente normal. Vamos verificar esta hipótese usando um 
+gráfico quantil-quantil, especificamente, podemos usar a função 
+ggqqplot do pacote ggpubr para produzir o gráfico.
+
+```{r}
+# pacote utilizado
+library(ggpubr)
+
+# Gráfico quantil-quantil dos dados
+ggqqplot(dados_programa, x = "poupanca") + 
+  xlab("quantis teóricos de uma distribuição normal padrão") + 
+  ylab("Quantidade Poupada")
+```
+
+O gráfico quantil-quantil mostre que é plausível considerar que os dados seguem 
+uma distribuição aproximadamente normal.
+
+Como as hipóteses necessárias para a validade de intervalos de 
+confiança para uma média foram verificadas, passamos à estimação 
+do intervalo de confiança:
+
+```{r}
+# estima o intervalo de confiança de 95% para a média das medições
+resultado <- t.test(dados_programa$poupanca, conf.level = 0.95)
+resultado
+
+# exibe apenas a estimativa do IC
+resultado <- resultado$conf.int
+resultado
+```
+
+
+#### Reportando o resultado
+
+A quantidade média poupada pelos participantes do programa de 
+educação financeira foi R$ 191,50 (IC 95% [184,38 198,62]). 
+
+Como a estimativa por intervalo de confiança para a média da poupança mensal 
+não contém zero podemos concluir, com 95% de confiança, que os dados da 
+pesquisa fornecem evidência de que a participação no programa de educação financeira tem um impacto positivo na quantidade poupada mensalmente, sendo 
+que a quantidade média poupada pelos participantes varia entre 
+R\$ 184,38 e R\$ 198,62 por mês.
+:::
+::::
+
+
+
+
+## Aplicação 4
+
+:::: {style="font-size: 90%;"}
+
+::: {.callout-note icon=false}
+## Estimação de Intervalo de Confiança para Comparar Duas Médias
+
+Você está conduzindo um experimento em Economia Comportamental para avaliar o 
+impacto de dois diferentes tipos de incentivo (monetário vs. não monetário) 
+na produtividade dos funcionários medida como unidades produzidas por 
+semana. 
+
+Você coletou uma amostra aleatória de funcionários e os dividiu em 
+dois grupos:
+
+- Grupo A (Incentivo Monetário)
+- Grupo B (Incentivo Não Monetário)
+
+Você mediu a produtividade dos funcionários (em unidades de produção por 
+semana) após a implementação dos incentivos. Os dados produzidos pelo 
+experimento foram: 
+
+| grupo | produtividade |
+|-------|---------------|
+| A     | 50            |
+| A     | 55            |
+| A     | 53            |
+| A     | 58            |
+| A     | 52            |
+| A     | 56            |
+| A     | 54            |
+| A     | 57            |
+| A     | 51            |
+| A     | 55            |
+| A     | 59            |
+| A     | 52            |
+| A     | 53            |
+| A     | 56            |
+| A     | 57            |
+| A     | 54            |
+| A     | 52            |
+| A     | 50            |
+| A     | 53            |
+| A     | 56            |
+| B     | 48            |
+| B     | 45            |
+| B     | 47            |
+| B     | 49            |
+| B     | 46            |
+| B     | 44            |
+| B     | 48            |
+| B     | 47            |
+| B     | 45            |
+| B     | 46            |
+| B     | 49            |
+| B     | 44            |
+| B     | 45            |
+| B     | 48            |
+| B     | 47            |
+| B     | 46            |
+| B     | 44            |
+| B     | 45            |
+| B     | 46            |
+| B     | 47            |
+
+- Qual tipo de incentivo apresentou o maior impacto na produtividade dos 
+funcionários?
+
+- Armazenando os dados em uma data frame:
+
+```{r}
+# cria data frame para armazenar os dados
+dados_incentivos <- data.frame(
+  grupo = c(rep("A", 20), rep("B", 20)),
+  produtividade = c(50, 55, 53, 58, 52, 56, 54, 57, 51, 55,
+                    59, 52, 53, 56, 57, 54, 52, 50, 53, 56,
+                    48, 45, 47, 49, 46, 44, 48, 47, 45, 46,
+                    49, 44, 45, 48, 47, 46, 44, 45, 46, 47)
+)
+```
+
+- Novamente, vamos verificar se os dados, referentes aos dois 
+grupos do estudo, seguem uma distribuição aproximadamente normal utilizando 
+gráficos quantil-quantil:
+
+```{r}
+# pacote utilizado
+library(ggpubr)
+
+# Gráfico quantil-quantil dos dados
+ggqqplot(dados_incentivos, x = "produtividade", 
+         color = "grupo", 
+         palette = c("#00AFBB", "#E7B800")) 
+```
+
+Vê-se que os dados de ambos os grupos estão dentro do intervalo de 
+confiança, assim, é plausível considerar que os dados de ambos os 
+grupos seguem uma distribuição aproximadamente normal.
+
+A estimação de um intervalo de confiança para a diferença entre as médias dos
+dois grupos é obtida com:
+
+```{r}
+# Realizar o teste t para calcular o intervalo de confiança
+resultado <- t.test(produtividade ~ grupo, 
+                    data = dados_incentivos, 
+                    conf.level = 0.95, 
+                    var.equal = FALSE)
+resultado
+
+# exibe apenas a estimativa do IC
+resultado$conf.int
+```
+
+#### Reportando o Resultado 
+
+A estimativa do intervalo com 95% de confiança, com correção de Welch, para 
+a diferença entre as produtividades médias do grupo que recebeu incentivo 
+monetário (M = 54,15 unidades produzidas) e o grupo qque recebeu 
+incentivo não monetário (M = 46,30 unidades produzidas), 
+sugere que a diferença é positiva e estatisticamente significativa 
+(diferença = 7,85, IC 95% [6,46, 9,24], t(31,49) = 11,51).
+:::
+::::
+
+
+
+
+## Tipos de Erro em Pesquisas 
+
+:::: {style="font-size: 90%;"}
+
+::: {.callout-important icon=false}
+## Erros Relacionados à Amostragem
+
+**Erro de Amostragem** (coberto pela margem de erro):  
+
+- Variação natural dos resultados ao se usar uma amostra ao invés de um censo. 
+Esse erro é controlável por métodos estatísticos, sendo o **único** refletido 
+na margem de erro.
+
+**Erro de Cobertura**:  
+
+- Ocorre quando parte da população-alvo tem 
+**probabilidade nula ou desigual de seleção**, comprometendo a 
+representatividade da amostra.  *Exemplo*: exclusão de pessoas sem 
+celular em pesquisas por telefone.
+
+**Erro de Não-Resposta**:  
+
+- Quando há 
+**diferenças sistemáticas entre quem responde e quem não responde**, 
+introduzindo viés nos resultados. 
+
+**Implicação**: Mesmo com amostragem aleatória, esses erros podem comprometer 
+a validade da inferência. Devem ser documentados e comunicados sempre 
+que presentes.
+:::
+::::  
+
+
+
+
+## Tipos de Erro em Pesquisas 
+
+:::: {style="font-size: 90%;"}
+
+::: {.callout-important icon=false}
+## Erros na Medição e Análise
+
+**Erro de Medição**:  
+
+- *Instrumento*: Perguntas ambíguas, enviesadas ou mal formuladas, 
+ou ainda influência do entrevistador.  
+- *Declaração*: Respostas falsas, por pressão social ou desejo de agradar.
+
+**Erro Temporal**:  
+
+- Mudanças reais na opinião pública entre a coleta dos dados e o evento 
+de interesse (ex: eleição, lançamento de produto).
+
+**Erro de Processamento**: 
+
+- Erros cometidos na entrada, codificação ou análise dos dados.
+
+**Implicação**:  
+
+- Esses erros **não são refletidos na margem de erro estatística**, mas podem 
+introduzir vieses significativos.  
+
+- A comunicação responsável deve explicitar que a margem de erro 
+cobre **apenas a variabilidade amostral aleatória**.
+:::
+::::
+
+
+
+## Referências
+
+::: {#refs}
+:::
+
+
+
+## Atualizando os Repositórios
+
+:::: {style="font-size: 85%;"}
+
+::: {.callout-tip}
+## Instruções
+
+1. No terminal do RStudio, verifique quais arquivos/pastas foram
+modificados ou criados com:
+
+```{.bash style="font-size: 1.1em;"}
+git status
+```
+
+2. Você pode adicionar todos os arquivos de uma vez com:
+
+```{.bash style="font-size: 1.1em;"}
+git add .
+```
+
+3. Execute git status novamente para confirmar que todos os arquivos foram adicionados (aparecerão em <span style="color: green;">verde</span> sob "*Changes to be committed*"):
+
+```{.bash style="font-size: 1.1em;"}
+git status
+```
+
+4. Se tudo estiver em <span style="color: green;">verde</span>, faça um commit com uma mensagem descritiva:
+
+```{.bash style="font-size: 1.1em;"}
+git commit -m "atualizacoes aula 13"
+```
+
+5. Se algum arquivo ou pasta ainda aparecer em <span style="color: red;">vermelho</span> após o 
+segundo git status, adicione as pastas/arquivos um por um:
+
+```{.bash style="font-size: 1.2em;"}
+git add relatorios/09-relatorio/10-relatorio.qmd
+```
+
+6. Execute git status novamente e faça o commit quando todos os arquivos
+estiverem em verde:
+
+```{.bash style="font-size: 1.1em;"}
+git commit -m "atualizacoes aula 13"
+```
+
+7. Envie o repositório local atualizado para o GitHub:
+
+```{.bash style="font-size: 1.1em;"}
+git push origin main
+```
+:::
+::::
+
+
+
