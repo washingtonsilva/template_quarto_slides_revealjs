@@ -44,7 +44,7 @@ Antes de começar, você precisa ter instalados:
 
 <p>
   <a href="https://github.com/seu-usuario/seu-repositorio/generate" target="_blank">
-    <img alt="Use this template" src="https://img.shields.io/badge/Use%20this%20template-brightgreen?style=for-the-badge&logo=github" />
+    <img alt="Use this template" src="https://img.shields.io/badge/Use%20this%20template-brightgreen?style=for-the-badge" />
   </a>
 </p>
 
