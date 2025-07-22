@@ -83,8 +83,8 @@ Substitua o link acima pelo endereço do seu repositório.
 8. Abra o RStudio, vá até **File → Open Project**, navegue até a pasta 
 clonada e abra o projeto RStudio: `template-slides-revealjs-seunome.Rproj`
 
-9. Abra o arquivo `template-slides-revealjs-seunome.qmd` e personalize 
-o conteúdo.
+9. **Renomeie** o arquivo `template-slides-revealjs-seunome.qmd` usando 
+um nome **descritivo** e personalize o conteúdo.
 
 
 
