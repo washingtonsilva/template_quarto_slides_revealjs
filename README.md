@@ -23,7 +23,7 @@ O template é composto pelos seguintes arquivos:
 - `referencias.bib`: arquivo contendo as referências bibliográficas. 
    Substitua seu conteúdo pelas suas próprias referências.
    
-**Dica:** Altere a extensão `.bibtex` para `.bib` para compatibilidade mais 
+> 💡 **Dica**:  Altere a extensão `.bibtex` para `.bib` para compatibilidade mais 
 ampla.
    
 - `associacao-brasileira-de-normas-tecnicas-ipea.csl`: arquivo de estilo 
