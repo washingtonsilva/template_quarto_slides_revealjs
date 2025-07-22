@@ -56,7 +56,7 @@ Antes de começar, você precisa ter instalados:
 
 ### Clonando o repositório para sua máquina
 
-5. No Windows, abra o **Windows Explorer** e acesse a pasta onde 
+5. Em seu computador, abra o **Windows Explorer** e acesse a pasta onde 
 deseja clonar seu repositório.
 
 > 💡 **Dica**: crie uma pasta chamada `Projetos` ou `Git` para organizar 
