@@ -160,9 +160,11 @@ mas não são obrigatórios.
 
 
 
-### Listas incremetais com .fragment
+### Listas incremetais com `incremental`
 
-- Itens que aparecem um a um ao clicar ou pressionar a seta para baixo:
+- É possível criar listas onde os itens aparecem um a um, 
+utilizando o comando `::: incremental` que precisa ser fechado com `:::`. 
+Você pode usar `-` ou `*` para definir os itens da lista. Por exemplo:
 
 ```markdown
 ::: incremental
