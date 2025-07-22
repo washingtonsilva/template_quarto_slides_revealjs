@@ -16,10 +16,16 @@ O template é composto pelos seguintes arquivos:
    fonte dos autores e permite estilizar a afiliação institucional 
    exibida no slide de abertura. Altere o conteúdo deste arquivo somente 
    se souber o que está fazendo.
+   
 - `img/logo.jpeg`: logotipo do IFMG - Campus Formiga, exibido no cabeçalho 
   da apresentação.
-- `referencias.bibtex`: arquivo contendo as referências bibliográficas. 
+  
+- `referencias.bib`: arquivo contendo as referências bibliográficas. 
    Substitua seu conteúdo pelas suas próprias referências.
+   
+**Dica:** Altere a extensão `.bibtex` para `.bib` para compatibilidade mais 
+ampla.
+   
 - `associacao-brasileira-de-normas-tecnicas-ipea.csl`: arquivo de estilo 
 para formatação automática de citações e referências conforme a norma ABNT 2023.
 

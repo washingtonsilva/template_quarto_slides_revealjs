@@ -38,7 +38,7 @@ execute:
   echo: false
   message: false
   warning: false
-bibliography: referencias.bibtex
+bibliography: referencias.bib
 csl: associacao-brasileira-de-normas-tecnicas-ipea.csl
 editor: source
 ---
