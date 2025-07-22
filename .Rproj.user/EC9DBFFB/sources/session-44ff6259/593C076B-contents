@@ -155,24 +155,6 @@ $$
 :::
 ```
 
-### Estilo CSS personalizado
-
-Arquivo `logo.css` para personalizar logotipo e título principal:
-
-```css
-.reveal .slide-logo {
-  height: 90px !important;
-  width: 70px !important;
-}
-
-.reveal h1.title {
-  font-size: 1.8em !important;
-  line-height: 1.2;
-  margin-bottom: 0.3em;
-}
-```
-
-
 
 ## Recomendações para adaptação por outros orientandos
 
@@ -184,15 +166,9 @@ Arquivo `logo.css` para personalizar logotipo e título principal:
 
 
 
-## Dicas para apresentação
+## Documentação e ajuda
 
-- O arquivo gerado é um HTML portátil: basta abrir no navegador.
-- Comandos úteis durante a apresentação:
-
-- `→` ou `↓`: avançar
-- `←` ou `↑`: voltar
-- `ESC`: visão geral dos slides
-- `S`: modo apresentador (disponível em navegadores compatíveis)
+- Estude a [documentação do formato revealjs para slides com Quarto](https://quarto.org/docs/presentations/revealjs/)
 
 
 
